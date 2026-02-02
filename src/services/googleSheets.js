@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Replace this with your actual Google Apps Script Web App URL
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfi89IPHKMsIjJcDiwL1m6jYlGla8-uZShOi67wAfy6oR7w8AlZVQ279lebyiLtvb-/exec';
+// Use environment variable for Google Apps Script Web App URL
+const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SHEET_API_URL;
 
 // Get current volunteer count
 export const getVolunteerCount = async () => {
