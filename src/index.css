@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bebas+Neue&family=Cairo:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Dark Gold Theme */
+    --background: 0 0% 4%;
+    --foreground: 45 30% 95%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 45 30% 95%;
+
+    /* Gold Primary */
+    --primary: 38 40% 60%;
+    --primary-foreground: 0 0% 4%;
+
+    /* Deep Blue Secondary */
+    --secondary: 256 60% 26%;
+    --secondary-foreground: 45 30% 95%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 45 20% 60%;
+
+    /* Gold Accent */
+    --accent: 43 60% 52%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 30% 95%;
+
+    --border: 38 30% 20%;
+    --input: 240 10% 15%;
+    --ring: 38 40% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom Colors */
+    --gold: 38 40% 60%;
+    --gold-light: 43 60% 70%;
+    --gold-dark: 35 45% 45%;
+    --deep-blue: 256 60% 26%;
+    --deep-purple: 263 50% 35%;
+    --midnight: 240 20% 6%;
+    --star: 43 80% 70%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38, 45%, 55%) 0%, hsl(43, 60%, 65%) 50%, hsl(35, 50%, 50%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 4%) 0%, hsl(240, 20%, 8%) 50%, hsl(256, 40%, 12%) 100%);
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, hsl(256, 60%, 15%) 0%, hsl(0, 0%, 4%) 70%);
+    --gradient-card: linear-gradient(145deg, hsl(240, 10%, 10%) 0%, hsl(240, 15%, 6%) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 0 30px hsl(38, 40%, 50%, 0.3);
+    --shadow-glow: 0 0 60px hsl(38, 50%, 55%, 0.2);
+    --shadow-card: 0 10px 40px hsl(0, 0%, 0%, 0.5);
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 45 30% 95%;
+    --sidebar-primary: 38 40% 60%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 256 60% 26%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 38 30% 20%;
+    --sidebar-ring: 38 40% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .shadow-gold-glow {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-gold-intense {
+    box-shadow: 0 0 40px hsl(38, 50%, 55%, 0.4), 0 0 80px hsl(38, 50%, 55%, 0.2);
+  }
+
+  .border-gold-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--gradient-card), var(--gradient-card)) padding-box,
+                var(--gradient-gold) border-box;
+  }
+
+  .counter-number {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .arabic-text {
+    font-family: 'Amiri', serif;
+  }
+
+  .gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(43, 60%, 70%, 0.3), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    100% {
+      left: 100%;
+    }
+  }
+
+  .geometric-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a86a' fill-opacity='0.05'%3E%3Cpath d='M30 0L60 30L30 60L0 30z M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .star-field {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(43, 80%, 70%), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(43, 80%, 70%), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(43, 80%, 70%), transparent),
+      radial-gradient(2px 2px at 130px 80px, hsl(43, 80%, 70%), transparent),
+      radial-gradient(1px 1px at 160px 30px, hsl(43, 80%, 70%), transparent);
+    background-size: 200px 100px;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-pulse-gold {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(38, 40%, 50%, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(38, 50%, 55%, 0.5), 0 0 60px hsl(38, 50%, 55%, 0.3);
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+}
